@@ -1,0 +1,5 @@
+@use "@material/theme" as theme;
+
+.active-link {
+  --mdc-text-button-label-text-color: #{theme.$primary} !important;
+}
