@@ -58,7 +58,7 @@
       "eslint --fix --cache",
       "prettier --write"
     ],
-    "*.{scss}": [
+    "*.scss": [
       "stylelint --fix --cache",
       "prettier --write"
     ],
