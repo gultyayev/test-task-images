@@ -8,6 +8,7 @@
 
 # Linters cache
 .stylelintcache
+.eslintcache
 
 # Node
 /node_modules
