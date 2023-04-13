@@ -1,15 +1,25 @@
-<mat-toolbar class="justify-center">
-  <a
-    [routerLinkActiveOptions]="{ exact: true }"
-    routerLink="/"
-    routerLinkActive="active-link"
-    mat-button
-    >Photos</a
-  >
-  <a routerLink="/favorites" routerLinkActive="active-link" mat-button
-    >Favorites</a
-  >
-</mat-toolbar>
+<header>
+  <mat-toolbar class="justify-center">
+    <nav>
+      <ul class="flex">
+        <li>
+          <a
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            routerLinkActive="active-link"
+            mat-button
+            >Photos</a
+          >
+        </li>
+        <li>
+          <a routerLink="/favorites" routerLinkActive="active-link" mat-button
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </mat-toolbar>
+</header>
 
 <div class="max-w-3xl mx-auto">
   <router-outlet></router-outlet>
