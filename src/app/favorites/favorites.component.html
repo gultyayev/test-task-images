@@ -1,1 +1,15 @@
-<p>favorites works!</p>
+<ul *ngIf="images?.length; else noData" class="container">
+  <li *ngFor="let image of images; let i = index">
+    <a [routerLink]="['/photos', i]">
+      <img [src]="image" alt="" />
+    </a>
+  </li>
+</ul>
+
+<ng-template #noData>
+  <div class="no-favourites-container">
+    No favorite photos. To add one, follow to
+    <a routerLink="/" class="link">the home page</a> and click on any photo to
+    your liking.
+  </div>
+</ng-template>

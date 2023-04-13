@@ -10,4 +10,12 @@ export class FavouritePhotosQuery extends Query<FavouritePhotosState> {
   constructor(protected override store: FavouritePhotosStore) {
     super(store);
   }
+
+  getList() {
+    return Object.keys(this.store.getValue());
+  }
+
+  getOne(index: number) {
+    return Object.keys(this.store.getValue()).at(index);
+  }
 }

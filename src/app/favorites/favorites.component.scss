@@ -1,0 +1,21 @@
+@use "@material/theme" as theme;
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: 30px;
+  justify-content: space-around;
+}
+
+.no-favourites-container {
+  font-size: 1.2em;
+  padding: 30px;
+  text-align: center;
+}
+
+.link {
+  color: theme.$primary;
+  text-decoration: underline;
+}
