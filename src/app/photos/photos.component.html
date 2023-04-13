@@ -1,1 +1,9 @@
-<p>photos works!</p>
+<ul *ngIf="images$ | async as images; else spinner" class="container">
+  <li *ngFor="let image of images"><img [src]="image" alt="" /></li>
+</ul>
+
+<ng-template #spinner>
+  <div class="spinner-container">
+    <mat-spinner />
+  </div>
+</ng-template>
