@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
+import { persistState } from '@datorama/akita';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,12 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'persistState',
+      useValue: persistState(),
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

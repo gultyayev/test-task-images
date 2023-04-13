@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PhotosService } from './photos.service';
 import { BehaviorSubject, exhaustMap } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FavouritePhotosService } from '../shared/state/favourite-photos/favourite-photos.service';
 
 @Component({
   selector: 'app-photos',
@@ -19,10 +20,17 @@ export class PhotosComponent implements OnDestroy {
     exhaustMap(() => this.photosService.getPhotos())
   );
 
-  constructor(private photosService: PhotosService) {}
+  constructor(
+    private photosService: PhotosService,
+    private favouritePhotosService: FavouritePhotosService
+  ) {}
 
   ngOnDestroy() {
     this.loadImages$.complete();
+  }
+
+  addToFavourites(imgUrl: string) {
+    this.favouritePhotosService.add(imgUrl);
   }
 
   loadMoreImages() {

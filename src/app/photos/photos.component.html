@@ -1,5 +1,15 @@
 <ul *ngIf="images$ | async as images; else spinner" class="container">
-  <li *ngFor="let image of images"><img [src]="image" alt="" /></li>
+  <li *ngFor="let image of images">
+    <img
+      (click)="addToFavourites(image)"
+      (keydown.enter)="addToFavourites(image)"
+      [src]="image"
+      tabindex="0"
+      class="cursor-pointer"
+      title="Click to add the image to the Favorites list"
+      alt=""
+    />
+  </li>
 </ul>
 
 <ng-template #spinner>
