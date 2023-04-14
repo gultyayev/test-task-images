@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './infinite-loader.component.html',
   styleUrls: ['./infinite-loader.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfiniteLoaderComponent implements AfterViewInit, OnDestroy {
   @Output() shouldLoad = new EventEmitter<void>();

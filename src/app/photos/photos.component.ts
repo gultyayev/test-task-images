@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotosService } from './photos.service';
 import { BehaviorSubject, exhaustMap, finalize, scan } from 'rxjs';
@@ -13,6 +13,7 @@ import { InfiniteLoaderComponent } from '../shared/components/infinite-loader/in
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.scss'],
   providers: [PhotosService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotosComponent implements OnDestroy {
   protected loadImages$ = new BehaviorSubject<void>(undefined);

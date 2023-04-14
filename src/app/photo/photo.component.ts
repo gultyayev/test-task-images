@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
@@ -11,6 +11,7 @@ import { FavouritePhotosService } from '../shared/state/favourite-photos/favouri
   styleUrls: ['./photo.component.scss'],
   standalone: true,
   imports: [AsyncPipe, NgIf, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotoComponent {
   protected img$ = this.activatedRoute.data.pipe(map((d) => d['img']));
