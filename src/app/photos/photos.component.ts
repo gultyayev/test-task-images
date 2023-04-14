@@ -16,7 +16,7 @@ import { FavouritePhotosService } from '../shared/state/favourite-photos/favouri
 export class PhotosComponent implements OnDestroy {
   protected loadImages$ = new BehaviorSubject<void>(undefined);
 
-  images$ = this.loadImages$.pipe(
+  protected images$ = this.loadImages$.pipe(
     exhaustMap(() => this.photosService.getPhotos())
   );
 

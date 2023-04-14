@@ -11,7 +11,7 @@ import { FavouritePhotosQuery } from '../shared/state/favourite-photos/favourite
   styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent {
-  images = this.favouritePhotosQuery.getList();
+  protected images = this.favouritePhotosQuery.getList();
 
   constructor(private readonly favouritePhotosQuery: FavouritePhotosQuery) {}
 }

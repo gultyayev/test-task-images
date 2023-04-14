@@ -1,19 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FavoritesComponent } from './favorites.component';
+import createSpy = jasmine.createSpy;
 
 describe('FavoritesComponent', () => {
   let component: FavoritesComponent;
-  let fixture: ComponentFixture<FavoritesComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [FavoritesComponent],
-    }).compileComponents();
+  let favouritePhotosQueryMock: any;
 
-    fixture = TestBed.createComponent(FavoritesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    favouritePhotosQueryMock = {
+      getList: createSpy('#getList'),
+    };
+
+    component = new FavoritesComponent(favouritePhotosQueryMock);
   });
 
   it('should create', () => {
