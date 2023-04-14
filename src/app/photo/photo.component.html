@@ -1,1 +1,8 @@
-<p>photo works!</p>
+<ng-container *ngIf="img$ | async as img">
+  <img [src]="img.url" alt="" />
+  <div class="flex justify-center mb-5">
+    <button color="primary" (click)="removeFromFavourites(img.id)" mat-button>
+      Remove from favorites
+    </button>
+  </div>
+</ng-container>

@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Query } from '@datorama/akita';
+import { QueryEntity } from '@datorama/akita';
 import {
   FavouritePhotosState,
   FavouritePhotosStore,
 } from './favourite-photos.store';
 
 @Injectable({ providedIn: 'root' })
-export class FavouritePhotosQuery extends Query<FavouritePhotosState> {
+export class FavouritePhotosQuery extends QueryEntity<FavouritePhotosState> {
   constructor(protected override store: FavouritePhotosStore) {
     super(store);
   }
 
   getList() {
-    return Object.keys(this.store.getValue());
+    return this.getAll();
   }
 
-  getOne(index: number) {
-    return Object.keys(this.store.getValue()).at(index);
+  getOne(id: string) {
+    return this.getEntity(id);
   }
 }

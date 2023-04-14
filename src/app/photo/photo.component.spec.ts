@@ -1,22 +1,37 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PhotoComponent } from './photo.component';
+import { of } from 'rxjs';
+import createSpy = jasmine.createSpy;
 
 describe('PhotoComponent', () => {
   let component: PhotoComponent;
-  let fixture: ComponentFixture<PhotoComponent>;
+
+  let activatedRouteMock: any;
+  let favouritePhotosServiceMock: any;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [PhotoComponent],
-    }).compileComponents();
+    activatedRouteMock = {
+      data: of({
+        img: {
+          id: '1',
+          url: '1',
+        },
+      }),
+    };
+    favouritePhotosServiceMock = {
+      remove: createSpy('#remove'),
+    };
 
-    fixture = TestBed.createComponent(PhotoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new PhotoComponent(
+      activatedRouteMock,
+      favouritePhotosServiceMock
+    );
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  describe('removeFromFavourites', () => {
+    it('should call favouritePhotosService.remove with id', function () {
+      component.removeFromFavourites('id');
+
+      expect(favouritePhotosServiceMock.remove).toHaveBeenCalledWith('id');
+    });
   });
 });

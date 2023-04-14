@@ -1,7 +1,7 @@
 <ul *ngIf="images?.length; else noData" class="container">
-  <li *ngFor="let image of images; let i = index">
-    <a [routerLink]="['/photos', i]">
-      <img [src]="image" alt="" />
+  <li *ngFor="let image of images">
+    <a [routerLink]="['/photos', image.id]">
+      <img [src]="image.url" alt="" />
     </a>
   </li>
 </ul>
