@@ -1,4 +1,4 @@
-<ul *ngIf="images$ | async as images; else spinner" class="container">
+<ul *ngIf="images$ | async as images" class="container">
   <li *ngFor="let image of images">
     <img
       (click)="addToFavourites(image)"
@@ -12,8 +12,8 @@
   </li>
 </ul>
 
-<ng-template #spinner>
-  <div class="spinner-container">
-    <mat-spinner />
-  </div>
-</ng-template>
+<div *ngIf="loading$ | async" class="spinner-container">
+  <mat-spinner />
+</div>
+
+<app-infinite-loader (shouldLoad)="loadImages$.next()" />
